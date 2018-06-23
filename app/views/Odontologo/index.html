@@ -1,0 +1,77 @@
+
+<div ng-controller="OdontologoController">
+
+	<md-toolbar>
+      <div class="md-toolbar-tools">
+
+      <md-button ng-click="new()" class="md-icon-button md-primary md-hue-1" aria-label="add">
+      <md-tooltip md-autohide>Nuevo</md-tooltip>
+      <md-icon md-svg-icon="icons/ic_add_24px.svg"></md-icon>
+      </md-button>
+
+   
+      <md-button ng-click="listAll(page,options.count)" class="md-icon-button md-primary md-hue-1" aria-label="listar todo">
+      <md-tooltip md-autohide>Listar todo</md-tooltip>
+      <md-icon md-svg-icon="icons/ic_reorder_24px.svg"></md-icon> 
+      </md-button>
+
+<!--
+      <button ng-click="loadClientes()">Load Posts</button>
+-->
+
+      <span flex></span>
+
+      <md-input-container md-no-float>
+      <input placeholder="buscar" ng-model="query" ng-keyup="list(page)" 
+      ng-model-options="{ debounce: 250 }" >
+      </md-input-container>
+
+      </div>
+  </md-toolbar>
+
+  <div layout="row" flex >
+	<table mi-table style="width:100%">
+
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>ape</td>
+			<td>nom</td>
+      <td>dir</td>
+      <td>tel</td>
+      <td>tipodoc</td>
+      <td>numdoc</td>
+      <td>e-mail</td>
+      <td>gen</td>
+      <td>edite</td>
+      <td>delete</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr ng-repeat="d in d_list">
+			<td>{{ d.id }}</td>
+      <td>{{ d.apellidos_odontologo }}</td>
+      <td>{{ d.nombre_odontologo }}</td>
+      <td>{{ d.direccion_odontologo }}</td>
+      <td>{{ d.telefono_odontologo }}</td>
+      <td>{{ d.tipodoc_odontologo }}</td>
+      <td>{{ d.numdoc_odontologo }}</td>
+      <td>{{ d.email_odontologo }}</td>
+      <td>{{ d.genero_odontologo }}</td>
+			<td> <a href="" ng-click="get(d)">Edit</a></td>
+			<td> <a href="" ng-click="delete(d)">Del</a></td>
+		</tr>
+	</tbody>
+
+	<tfoot>
+    <tr>
+      <td>
+      </td>
+    </tr>
+  </tfoot>
+
+</table>
+</div>
+
+</div>

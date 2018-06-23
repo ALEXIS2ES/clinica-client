@@ -1,0 +1,72 @@
+<md-dialog aria-label="Form">
+<form name='myform' >
+<md-dialog-content>
+<md-content layout-padding>
+
+<h3>registro {{citainscripcion.id}}</h3>
+<div>
+
+<label>Ap Cliente</label>
+<md-input-container flex>
+	<!--variable citainscripcion.apellidos_clien      variable cliente    lista   API   variable citainscripcion.apellidos_clien-->
+	<select ng-model="citainscripcion.apellidos_clien" ng-options="value.id as value.apellidos_cliente for value in cliente_nombre_list">
+		<option>--</option>
+	</select>{{citainscripcion.apellidos_clien.id}}
+</md-input-container>
+
+<label>Ap Odontologo</label>
+<md-input-container flex>
+	<!--variable citainscripcion.apellidos_odonto      variable odontologo    lista   API   variable citainscripcion.apellidos_odonto-->
+	<select ng-model="citainscripcion.apellidos_odonto" ng-options="value.id as value.apellidos_odontologo for value in odontologo_nombre_list">
+		<option>--</option>
+	</select>{{citainscripcion.apellidos_odonto.id}}
+</md-input-container>
+
+<md-input-container flex>
+<label>serie :</label>
+<input ng-model="citainscripcion.serie" required>
+</md-input-container>
+<md-input-container flex>
+<label>ruc :</label>
+<input ng-model="citainscripcion.ruc" required>
+</md-input-container>
+<md-input-container flex>
+<label>tipo_pago :</label>
+<input ng-model="citainscripcion.tipo_pago" required>
+</md-input-container>
+<md-input-container flex>
+<label>tipodocumento_pago :</label>
+<input ng-model="citainscripcion.tipodocumento_pago" required>
+</md-input-container>
+<md-input-container flex>
+<label>direccion :</label>
+<input ng-model="citainscripcion.direccion" required>
+</md-input-container>
+<md-input-container flex>
+<label>fecha_citasuscripcion :</label>
+<input ng-model="citainscripcion.fecha_citasuscripcion" required>
+</md-input-container>
+<md-input-container flex>
+<label>fecha_citaatender :</label>
+<input ng-model="citainscripcion.fecha_citaatender" required>
+</md-input-container><!--
+<md-input-container flex>
+<label>estado_cita :</label>
+<input ng-model="citainscripcion.estado_cita" required>
+</md-input-container>
+-->
+</div>
+</md-content>
+
+</md-dialog-content>
+<div class="md-actions" layout="row">
+<span flex></span>
+<md-button type="reset" ng-click="cancel()">
+cancelar
+</md-button>
+<md-button type="submit"  ng-click="save()" ng-disabled="!myform.$valid">
+guardar
+</md-button>
+</div>
+</form>
+</md-dialog>

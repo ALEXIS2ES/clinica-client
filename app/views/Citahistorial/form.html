@@ -1,0 +1,64 @@
+<md-dialog aria-label="Form">
+<form name='myform' >
+<md-dialog-content>
+<md-content layout-padding>
+
+<h3>registro {{citahistorial.id}}</h3>
+<div>
+
+<label>CitaSerie</label>
+<md-input-container flex>
+	<!--variable citahistorial.serie_inscrip      variable cliente    lista   API   variable citahistorial.serie_inscrip-->
+	<select ng-model="citahistorial.serie_inscrip" ng-options="value.id as value.serie for value in citainscripcion_nombre_list">
+		<option>--</option>
+	</select>{{citahistorial.serie_inscrip.id}}
+</md-input-container>
+
+
+<md-input-container flex>
+<label>fecha_atencion :</label>
+<input ng-model="citahistorial.fecha_atencion" required>
+</md-input-container>
+
+
+<label>NomEspecialidad</label>
+<md-input-container flex>
+	<!--variable citahistorial.nombre_especiali      variable odontologo    lista   API   variable citahistorial.nombre_especiali-->
+	<select ng-model="citahistorial.nombre_especiali" ng-options="value.id as value.nombre_especialidad for value in especialidad_nombre_list">
+		<option>--</option>
+	</select>{{citahistorial.nombre_especiali.id}}
+</md-input-container>
+
+
+<md-input-container flex>
+<label>fecha_atender :</label>
+<input ng-model="citahistorial.fecha_atender" required>
+</md-input-container>
+<md-input-container flex>
+<label>descripcion :</label>
+<input ng-model="citahistorial.descripcion" required>
+</md-input-container>
+<md-input-container flex>
+<label>precio_un :</label>
+<input ng-model="citahistorial.precio_un" required>
+</md-input-container>
+<md-input-container flex>
+<label>cantidad :</label>
+<input ng-model="citahistorial.cantidad" required>
+</md-input-container>
+
+</div>
+</md-content>
+
+</md-dialog-content>
+<div class="md-actions" layout="row">
+<span flex></span>
+<md-button type="reset" ng-click="cancel()">
+cancelar
+</md-button>
+<md-button type="submit"  ng-click="save()" ng-disabled="!myform.$valid">
+guardar
+</md-button>
+</div>
+</form>
+</md-dialog>

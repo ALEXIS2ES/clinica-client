@@ -1,0 +1,59 @@
+<md-dialog aria-label="Form">
+<form name='myform' >
+<md-dialog-content>
+<md-content layout-padding>
+
+<h3>registro {{cliente.id}}</h3>
+<div>
+<md-input-container flex>
+<label>Nombre :</label>
+<input ng-model="cliente.nombre_cliente" required>
+</md-input-container>
+<md-input-container flex>
+<label>Apellidos :</label>
+<input ng-model="cliente.apellidos_cliente" required>
+</md-input-container>
+<md-input-container flex>
+<label>direccion :</label>
+<input ng-model="cliente.direccion_cliente" required>
+</md-input-container>
+<md-input-container flex>
+<label>telefono :</label>
+<input ng-model="cliente.telefono_cliente" required>
+</md-input-container>
+<md-input-container flex>
+<label>tipodoc :</label>
+<input ng-model="cliente.tipodoc_cliente" required>
+</md-input-container>
+<md-input-container flex>
+<label>numdoc :</label>
+<input ng-model="cliente.numdoc_cliente" required>
+</md-input-container>
+<md-input-container flex>
+<label>genero :</label>
+<input ng-model="cliente.genero_cliente" required>
+</md-input-container>
+<md-input-container flex>
+<label>email :</label>
+<input ng-model="cliente.email_cliente" required>
+</md-input-container>
+<md-input-container flex>
+<label>fecha :</label>
+<input ng-model="cliente.fechasuscripcion_cliente" required>
+</md-input-container>
+
+</div>
+</md-content>
+
+</md-dialog-content>
+<div class="md-actions" layout="row">
+<span flex></span>
+<md-button type="reset" ng-click="cancel()">
+cancelar
+</md-button>
+<md-button type="submit"  ng-click="save()" ng-disabled="!myform.$valid">
+guardar
+</md-button>
+</div>
+</form>
+</md-dialog>

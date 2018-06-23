@@ -1,0 +1,83 @@
+<md-dialog aria-label="Form">
+<form name='myform' >
+<md-dialog-content>
+<md-content layout-padding>
+
+<h3>registro {{cajaingreso.id}}</h3>
+<div>
+
+<label>CodUsuario</label>
+<md-input-container flex>
+	<!--variable cajaingreso.codigo_usuar      variable cliente    lista   API   variable cajaingreso.codigo_usuar-->
+	<select ng-model="cajaingreso.codigo_usuar" ng-options="value.id as value.codigo_usuario for value in cuentausuario_nombre_list">
+		<option>--</option>
+	</select>{{cajaingreso.codigo_usuar.id}}
+</md-input-container>
+
+<!--
+<label>CitasSerie</label>
+<md-input-container flex>
+	<!--variable cajaingreso.serie_inscrip      variable odontologo    lista   API   variable cajaingreso.serie_inscrip-->
+	<!--<select ng-model="cajaingreso.serie_inscrip" ng-options="value.id as value.serie for value in citainscripcion_nombre_list">
+		<option>--</option>
+	</select>{{cajaingreso.serie_inscrip.id}}
+</md-input-container>
+-->
+
+<label>CitasSerie</label>
+<md-input-container flex multiple>
+<select ng-model="cajaingreso.serie_inscrip" ng-options="value.id as value.serie for value in citainscripcion_nombre_list" multiple id="searchText">
+<option>--</option>
+</select>{{cajaingreso.serie_inscrip.id}}
+</md-input-container>
+
+<div class='container-fluid typeahead-demo' multiple>
+<input  flex multiple type="text" ng-model="cajaingreso.serie_inscrip" uib-typeahead="value.id as value.serie for value in citainscripcion_nombre_list | filter:$viewValue | limitTo:8" style="background-color: white; color:fuchsia" class="form-control"><option>--</option>
+</select>{{cajaingreso.serie_inscrip.id}}
+</div>
+
+
+<md-input-container flex>
+<label>dni_pagador :</label>
+<input ng-model="cajaingreso.dni_pagador" required>
+</md-input-container>
+<md-input-container flex>
+<label>direccion :</label>
+<input ng-model="cajaingreso.direccion" required>
+</md-input-container>
+<md-input-container flex>
+<label>monto :</label>
+<input ng-model="cajaingreso.monto" required>
+</md-input-container>
+<md-input-container flex>
+<label>fecha :</label>
+<input ng-model="cajaingreso.fecha" required>
+</md-input-container>
+<md-input-container flex>
+<label>estado_caja :</label>
+<input ng-model="cajaingreso.estado_caja" required>
+</md-input-container>
+
+
+</div>
+</md-content>
+
+</md-dialog-content>
+<div class="md-actions" layout="row">
+<span flex></span>
+<md-button type="reset" ng-click="cancel()">
+cancelar
+</md-button>
+<md-button type="submit"  ng-click="save()" ng-disabled="!myform.$valid">
+guardar
+</md-button>
+</div>
+</form>
+</md-dialog>
+
+
+
+
+
+		
+

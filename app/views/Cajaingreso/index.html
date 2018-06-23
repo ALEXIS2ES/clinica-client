@@ -1,0 +1,76 @@
+
+<div ng-controller="CajaingresoController">
+
+  <md-toolbar>
+      <div class="md-toolbar-tools">
+
+      <md-button ng-click="new()" class="md-icon-button md-primary md-hue-1" aria-label="add">
+      <md-tooltip md-autohide>Nuevo</md-tooltip>
+      <md-icon md-svg-icon="icons/ic_add_24px.svg"></md-icon>
+      </md-button>
+
+   
+      <md-button ng-click="listAll(page,options.count)" class="md-icon-button md-primary md-hue-1" aria-label="listar todo">
+      <md-tooltip md-autohide>Listar todo</md-tooltip>
+      <md-icon md-svg-icon="icons/ic_reorder_24px.svg"></md-icon> 
+      </md-button>
+
+<!--
+      <button ng-click="loadClientes()">Load Posts</button>
+-->
+
+      <span flex></span>
+
+      <md-input-container md-no-float>
+      <input placeholder="buscar" ng-model="query" ng-keyup="list(page)" 
+      ng-model-options="{ debounce: 250 }" >
+      </md-input-container>
+
+      </div>
+  </md-toolbar>
+
+  <div layout="row" flex >
+  <table mi-table style="width:100%">
+
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>codigo_usu</td>
+      <td>serie_in</td>
+      <td>dni_pagador</td>
+      <td>direccion</td>
+      <td>monto</td>
+      <td>fecha</td>
+      <td>estado_caja</td>
+      <td>edite</td>
+      <td>delete</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="d in d_list">
+      <td>{{ d.id }}</td>
+      <td>{{ d.codigo_usu }}</td><!--variable serializer-->
+      <td>{{ d.serie_in }}</td><!--variable serializer-->
+      <td>{{ d.dni_pagador }}</td>
+      <td>{{ d.direccion }}</td>
+      <td>{{ d.monto }}</td>
+      <td>{{ d.fecha }}</td>
+      <td>{{ d.estado_caja }}</td>
+      <td> <a href="" ng-click="get(d)">Edit</a></td>
+      <td> <a href="" ng-click="delete(d)">Del</a></td>
+
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td>
+      </td>
+    </tr>
+  </tfoot>
+
+</table>
+</div>
+
+</div>

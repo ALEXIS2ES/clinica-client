@@ -1,0 +1,90 @@
+
+<div ng-controller="ClienteController">
+
+	<md-toolbar>
+      <div class="md-toolbar-tools">
+
+      <md-button ng-click="new()" class="md-icon-button md-primary md-hue-1" aria-label="add">
+      <md-tooltip md-autohide>Nuevo</md-tooltip>
+      <md-icon md-svg-icon="icons/ic_add_24px.svg"></md-icon>
+      </md-button>
+
+   
+      <md-button ng-click="listAll(page,options.count)" class="md-icon-button md-primary md-hue-1" aria-label="listar todo">
+      <md-tooltip md-autohide>Listar todo</md-tooltip>
+      <md-icon md-svg-icon="icons/ic_reorder_24px.svg"></md-icon> 
+      </md-button>
+
+<!--
+      <button ng-click="loadClientes()">Load Posts</button>
+-->
+      <md-button class="md-raised md-danger" target="_blank" align="right" style="text-align: center; color:red" ><a class="btn btn-success" id="excel" ng-click=(exportData())><i class="glyphicon glyphicon-plus"></i>&nbsp;EXCEL<md-tooltip md-autohide style="background-color: white;">EXCEL</md-tooltip></a></md-button>
+
+
+      <a class="btn btn-success" id="excel" ng-click="printIt()"><i class="glyphicon glyphicon-plus"></i>&nbsp;PDF</a>
+
+      <md-button class="md-raised md-primary" id="excel" ng-click=(exportData1())>word<md-tooltip md-autohide style="background-color: yellow;">Report word</md-tooltip></md-button>
+
+      <span flex></span>
+
+      <p><input placeholder="Buscar" type="text" ng-model="test"></p>
+
+      </div>
+  </md-toolbar>
+
+  <div layout="row" flex id="table">
+	<table mi-table style="width:100%">
+
+	<thead>
+		<tr>
+			<td>#</td>
+      <td>ape</td>
+			<td>nom</td>
+      <td>dir</td>
+      <td>tel</td>
+      <td>tipodoc</td>
+      <td>numdoc</td>
+      <td>e-mail</td>
+      <td>gen</td>
+      <td>fechasus</td>
+
+      
+
+      <td>edite</td>
+      <td>delete</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr ng-repeat="d in d_list | orderBy:'id' | filter : test">
+			<td>{{ d.id }}</td>
+      <td>{{ d.apellidos_cliente }}</td>
+      <td>{{ d.nombre_cliente }}</td>
+      <td>{{ d.direccion_cliente }}</td>
+      <td>{{ d.telefono_cliente }}</td>
+      <td>{{ d.tipodoc_cliente }}</td>
+      <td>{{ d.numdoc_cliente }}</td>
+      <td>{{ d.email_cliente }}</td>
+      <td>{{ d.genero_cliente }}</td>
+      <td>{{ d.fechasuscripcion_cliente }}</td>
+
+      
+<!--
+      <td ng-init="itemTotal = d.telefono_cliente + d.numdoc_cliente; controller.Total = controller.Total + itemTotal">{{itemTotal}} €</td>-->
+      
+
+			<td> <a href="" ng-click="get(d)">Edit</a></td>
+			<td> <a href="" ng-click="delete(d)">Del</a></td>
+		</tr>
+	</tbody>
+
+	<tfoot>
+    <tr>
+      
+    </tr>
+  </tfoot>
+
+</table>
+</div>
+
+</div>

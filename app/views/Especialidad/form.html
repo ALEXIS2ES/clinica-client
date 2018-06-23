@@ -1,0 +1,35 @@
+<md-dialog aria-label="Form">
+<form name='myform' >
+<md-dialog-content>
+<md-content layout-padding>
+
+<h3>registro {{especialidad.id}}</h3>
+<div>
+<md-input-container flex>
+<label>Nombre :</label>
+<input ng-model="especialidad.nombre_especialidad" required>
+</md-input-container>
+<md-input-container flex>
+<label>Descripcion :</label>
+<input ng-model="especialidad.descripcion" required>
+</md-input-container>
+<md-input-container flex>
+<label>Precio :</label>
+<input ng-model="especialidad.precio_especialidad" required>
+</md-input-container>
+
+</div>
+</md-content>
+
+</md-dialog-content>
+<div class="md-actions" layout="row">
+<span flex></span>
+<md-button type="reset" ng-click="cancel()">
+cancelar
+</md-button>
+<md-button type="submit"  ng-click="save()" ng-disabled="!myform.$valid">
+guardar
+</md-button>
+</div>
+</form>
+</md-dialog>

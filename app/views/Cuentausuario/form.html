@@ -1,0 +1,47 @@
+<md-dialog aria-label="Form">
+<form name='myform' >
+<md-dialog-content>
+<md-content layout-padding>
+
+<h3>registro {{cuentausuario.id}}</h3>
+<div>
+<label>Apellidos</label>
+<md-input-container flex>
+	<!--variable cuentausuario.apellidos_clien      variable cliente    lista   API   variable cuentausuario.apellidos_clien-->
+	<select ng-model="cuentausuario.apellidos_clien" ng-options="value.id as value.apellidos_cliente for value in cliente_nombre_list">
+		<option>--</option>
+	</select>{{cuentausuario.apellidos_clien.id}}
+</md-input-container>
+
+<md-input-container flex>
+<label>NumCuenta :</label>
+<input ng-model="cuentausuario.codigo_usuario" required>
+</md-input-container>
+<md-input-container flex>
+<label>Password :</label>
+<input ng-model="cuentausuario.password" required>
+</md-input-container>
+<md-input-container flex>
+<label>Saldo :</label>
+<input ng-model="cuentausuario.saldo" required>
+</md-input-container>
+<md-input-container flex>
+<label>FechaSuscripcion :</label>
+<input ng-model="cuentausuario.fechasuscripcion_usuario" required>
+</md-input-container>
+
+</div>
+</md-content>
+
+</md-dialog-content>
+<div class="md-actions" layout="row">
+<span flex></span>
+<md-button type="reset" ng-click="cancel()">
+cancelar
+</md-button>
+<md-button type="submit"  ng-click="save()" ng-disabled="!myform.$valid">
+guardar
+</md-button>
+</div>
+</form>
+</md-dialog>
